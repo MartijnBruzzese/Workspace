@@ -21,7 +21,8 @@ Not polished products — active work.
 ### 🍸 Hospitality
 Professional profile and experience.
 
-- [Hospitality Profile](hospitality.md)
+- 🇳🇱 [Hospitality Profile (NL)](hospitality_nl.md)
+- 🇬🇧 [Hospitality Profile (EN)](hospitality_en.md)
 
 ### ✍️ Writing
 Creative writing and personal reflections (work in progress).
