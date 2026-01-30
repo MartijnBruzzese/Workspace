@@ -32,9 +32,10 @@ Creative writing and personal reflections (work in progress).
 ### 🧭 Frameworks
 Independent work on UCSF (Universal Consent & Safety Framework) and related concepts.
 
-- [UCSF / ModelHaven](https://github.com/MartijnBruzzese/ModelHaven-Studio)
 
----
+<a href="https://github.com/MartijnBruzzese/ModelHaven-Studio?no_app=1" target="_blank">
+  🧭 UCSF / ModelHaven
+</a>
 
 ## Contact
 
