@@ -150,3 +150,26 @@ h1{margin:12px 0 6px;font-size:40px;letter-spacing:-.02em}
   position:absolute;
   inset:0;
 }
+
+.lightbox img{
+  max-width:90%;
+  max-height:85%;
+}
+
+/* Close button */
+
+.lightbox::after{
+  content:"✕";
+  position:fixed;
+  top:18px;
+  right:20px;
+  font-size:28px;
+  color:white;
+  opacity:.8;
+}
+
+.lightbox-close{
+  position:absolute;
+  inset:0;
+  cursor:pointer;
+}
