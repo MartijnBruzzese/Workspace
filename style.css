@@ -98,3 +98,13 @@ h1{margin:12px 0 6px;font-size:40px;letter-spacing:-.02em}
   h1{font-size:34px}
   .footer{flex-direction:column}
 }
+
+.btn.secondary{
+  background: linear-gradient(135deg,#2c3e50,#3a546e);
+  color:#eaf2ff;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+.btn.secondary:hover{
+  filter:brightness(1.1);
+}
