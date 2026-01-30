@@ -173,3 +173,12 @@ h1{margin:12px 0 6px;font-size:40px;letter-spacing:-.02em}
   inset:0;
   cursor:pointer;
 }
+
+.lightbox img{
+  animation:zoom .25s ease;
+}
+
+@keyframes zoom{
+  from{transform:scale(.9);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
