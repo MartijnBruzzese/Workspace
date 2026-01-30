@@ -1,0 +1,28 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor / IDE settings
+.vscode/
+.idea/
+
+# Temporary / swap files
+*.tmp
+*.log
+*.swp
+*.bak
+
+# Python (future)
+__pycache__/
+*.pyc
+
+# Node (future)
+node_modules/
+
+# Local environment files
+.env
+.env.*
+
+# Local exports / generated outputs
+*.pdf
+*.zip
