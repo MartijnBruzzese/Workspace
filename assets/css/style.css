@@ -305,3 +305,8 @@ hr{
   }
 
 }
+
+/* Consulting banner: move portrait slightly down on desktop */
+.hero--consulting .hero-banner{
+  background-position: right 35% !important;
+}
