@@ -26,7 +26,6 @@ body{
   padding:28px 18px 40px 12px;
 }
 
-/* body tekst licht naar links */
 main{
   margin-left:-4px;
 }
@@ -40,7 +39,7 @@ a:hover{text-decoration:underline}
 
 .hero{
   border:1px solid var(--line);
-  background: transparent;
+  background:transparent;
   border-radius:18px;
   padding:28px;
   box-shadow:0 10px 30px rgba(0,0,0,.35);
@@ -52,18 +51,12 @@ a:hover{text-decoration:underline}
 .hero-banner{
   position:absolute;
   inset:0;
-
-  /* IMPORTANT: background-image is set per page inline in HTML */
   background-size:cover;
-
-  /* default keeps right side free for portrait in consulting banner */
-  background-position:left center;
-
+  background-position:center;
   opacity:0.95;
   z-index:0;
 }
 
-/* subtle overlay for readability */
 .hero-banner::after{
   content:"";
   position:absolute;
@@ -71,27 +64,10 @@ a:hover{text-decoration:underline}
   background:rgba(0,0,0,.22);
 }
 
-/* Keep hero content above banner */
 .hero > *:not(.hero-banner){
   position:relative;
   z-index:2;
 }
-
-/* Limit hero text width so it doesn't overlap right-side portrait */
-.hero h1,
-.hero .subtitle,
-.hero .muted,
-.hero .cta{
-  max-width:560px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* (optional) if you ever want left aligned hero content later:
-.hero{ text-align:left; }
-.hero .cta{ justify-content:flex-start; }
-.hero-divider{ margin-left:0; }
-*/
 
 h1{
   margin:12px 0 6px;
@@ -114,7 +90,7 @@ h1{
   margin:10px auto;
 }
 
-/* Avatar */
+/* Avatar (index + hospitality only) */
 
 .hero-avatar{
   width:124px;
@@ -224,45 +200,12 @@ hr{
 }
 
 /* ===================== */
-/* Responsive */
-/* ===================== */
-
-@media (max-width:900px){
-  h1{font-size:34px}
-  .footer{flex-direction:column;align-items:flex-start}
-}
-
-/* On mobile, center banner crop so important parts aren't cut off too aggressively */
-@media (max-width:768px){
-  .hero-banner{
-    background-position:center center;
-  }
-
-  .hero h1,
-  .hero .subtitle,
-  .hero .muted,
-  .hero .cta{
-    max-width:92vw;
-  }
-}
-
-/* ===================== */
-/* Consulting hero variant */
-/* Keeps text away from right-side portrait */
+/* Consulting layout */
 /* ===================== */
 
 .hero--consulting{
   text-align:left;
-  padding-right:260px; /* reserve space for the portrait on the right */
-}
-
-.hero--consulting .cta{
-  justify-content:flex-start;
-}
-
-.hero--consulting .hero-divider{
-  margin-left:0;
-  margin-right:0;
+  padding-right:300px;
 }
 
 .hero--consulting h1,
@@ -274,24 +217,43 @@ hr{
   margin-right:0;
 }
 
-/* Optional: nudge the background so the portrait stays right */
+.hero--consulting .cta{
+  justify-content:flex-start;
+}
+
+.hero--consulting .hero-divider{
+  margin-left:0;
+  margin-right:0;
+}
+
 .hero--consulting .hero-banner{
   background-position:right center;
 }
 
-/* Mobile: remove reserved space, center again */
+/* ===================== */
+/* Responsive */
+/* ===================== */
+
+@media (max-width:900px){
+  h1{font-size:34px}
+  .footer{flex-direction:column;align-items:flex-start}
+}
+
 @media (max-width:768px){
   .hero--consulting{
-    padding-right:28px;
     text-align:center;
+    padding-right:28px;
   }
+
   .hero--consulting .cta{
     justify-content:center;
   }
+
   .hero--consulting .hero-divider{
     margin-left:auto;
     margin-right:auto;
   }
+
   .hero--consulting h1,
   .hero--consulting .subtitle,
   .hero--consulting .muted,
@@ -300,7 +262,8 @@ hr{
     margin-left:auto;
     margin-right:auto;
   }
+
   .hero--consulting .hero-banner{
-    background-position:center center;
+    background-position:center;
   }
 }
