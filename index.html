@@ -32,8 +32,7 @@
   </p>
 
   <div class="cta">
-    <a class="btn" href="hospitality_nl.html">🇳🇱 Hospitality (NL)</a>
-    <a class="btn" href="hospitality_en.html">🇬🇧 Hospitality (EN)</a>
+    <a class="btn" href="#" onclick="goHospitality()">🍸 Hospitality</a>
 
     <a class="btn secondary"
        href="https://martijnbruzzese.github.io/ModelHaven-Studio/"
@@ -54,8 +53,98 @@
         <path d="M4 18c2 0 2-1 4-1s2 1 4 1 2-1 4-1 2 1 4 1"/>
       </svg>
 
-      UCSF / Modelhaven Studio
+      UCSF / ModelHaven Studio
     </a>
 
-    <a class="btn" href="consulting_en.html">🇬🇧 UCSF Consulting</a>
-    <a class="btn" href="consulting_nl.html">🇳🇱 UCSF Consulting<_
+    <a class="btn" href="consulting_en.html">UCSF Consulting</a>
+  </div>
+</header>
+
+<main style="margin-top:28px">
+
+<section>
+<h2>🍸 Hospitality</h2>
+<p class="muted">
+Professional bar & service profile (20+ years experience).
+</p>
+</section>
+
+<hr>
+
+<section>
+<h2>✍️ Writing</h2>
+<p class="muted">
+Creative writing & reflections. Coming soon.
+</p>
+</section>
+
+<hr>
+
+<section>
+<h2>🧭 Frameworks</h2>
+<p class="muted">
+Independent work on consent-first system design and safety frameworks.<br>
+<a href="https://martijnbruzzese.github.io/ModelHaven-Studio/" target="_blank" rel="noopener noreferrer">
+Visit ModelHaven / UCSF
+</a>
+</p>
+</section>
+
+</main>
+
+<footer class="footer">
+
+<div>
+<strong>Contact</strong><br>
+<a href="mailto:martijnbruzzese@gmail.com">martijnbruzzese@gmail.com</a>
+</div>
+
+<div style="display:flex; gap:14px; align-items:center">
+
+<!-- LinkedIn -->
+<a class="social linkedin" href="https://www.linkedin.com/in/martijn-bruzzese-76b8b133" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+<path d="M22.23 0H1.77C.79 0 0 .774 0 1.727v20.545C0 23.227.79 24 1.77 24h20.46C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.23 0zM7.09 20.452H3.56V9h3.53v11.452zM5.325 7.433a2.046 2.046 0 110-4.092 2.046 2.046 0 010 4.092zM20.452 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z"/>
+</svg>
+</a>
+
+<!-- Facebook -->
+<a class="social facebook" href="https://www.facebook.com/martijnbruzzese" target="_blank" rel="noopener noreferrer" title="Facebook">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+<path d="M22.675 0h-21.35C.6 0 0 .6 0 1.35v21.3C0 23.4.6 24 1.35 24h11.5v-9.3H9.7V11h3.15V8.4c0-3.1 1.9-4.8 4.65-4.8 1.3 0 2.4.1 2.75.15v3.15h-1.9c-1.5 0-1.8.7-1.8 1.75V11h3.6l-.5 3.7h-3.1V24h6.1c.75 0 1.35-.6 1.35-1.35V1.35C24 .6 23.4 0 22.675 0z"/>
+</svg>
+</a>
+
+<!-- Instagram -->
+<a class="social instagram" href="https://www.instagram.com/martijnbruzzese" target="_blank" rel="noopener noreferrer" title="Instagram">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+<path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9z"/>
+<circle cx="12" cy="12" r="3.2"/>
+<circle cx="17.3" cy="6.7" r="1"/>
+</svg>
+</a>
+
+</div>
+
+<div class="muted">
+© 2026 Martijn Bruzzese
+</div>
+
+</footer>
+
+</div>
+
+<script>
+function goHospitality() {
+  const lang = navigator.language || navigator.userLanguage;
+
+  if (lang && lang.toLowerCase().startsWith('nl')) {
+    window.location.href = "hospitality_nl.html";
+  } else {
+    window.location.href = "hospitality_en.html";
+  }
+}
+</script>
+
+</body>
+</html>
