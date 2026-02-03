@@ -1,247 +1,110 @@
-:root{
-  --bg:#0b0f14;
-  --card:#0f1620;
-  --text:#e8eef6;
-  --muted:#a9b6c6;
-  --line:#1e2a3a;
-  --accent:#8bd3ff;
-}
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Martijn Bruzzese — Workspace</title>
+  <meta name="description" content="Personal workspace: hospitality, writing, frameworks.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+<body>
+<div class="wrap">
 
-body{
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:
-    radial-gradient(1200px 600px at 20% 0%, rgba(139,211,255,.16), transparent 60%),
-    radial-gradient(900px 600px at 80% 10%, rgba(180,140,255,.12), transparent 55%),
-    var(--bg);
-  color:var(--text);
-  line-height:1.5;
-}
+<header class="hero">
 
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:28px 18px 40px
-}
+  <!-- Index banner -->
+  <div class="hero-banner" style="background-image:url('assets/images/banner_index1.png')"></div>
 
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
+  <span class="badge">Workspace</span>
 
-/* Hero */
+  <!-- Avatar -->
+  <a href="#portrait">
+    <img src="assets/images/martijnportrait1.jpg" alt="Martijn Bruzzese" class="hero-avatar clickable">
+  </a>
 
-.hero{
-  border:1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  border-radius:18px;
-  padding:28px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
-  text-align:center;
+  <!-- Lightbox -->
+  <div id="portrait" class="lightbox">
+    <a href="#" class="lightbox-close"></a>
+    <img src="assets/images/martijnportrait1.jpg" alt="Martijn Bruzzese large">
+  </div>
 
-  /* Banner support */
-  position: relative;
-  overflow: hidden;
-}
+  <h1>Martijn Bruzzese</h1>
 
-.badge{
-  display:inline-block;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
-  padding:6px 10px;
-  border-radius:999px;
-  color:var(--muted);
-  font-size:13px;
-}
+  <p class="subtitle">
+    Senior Hospitality Professional · Creative Writer · Independent Framework Builder · Based in Rotterdam, NL
+  </p>
 
-h1{
-  margin:12px 0 6px;
-  font-size:40px;
-  letter-spacing:-.02em
-}
+  <div class="hero-divider"></div>
 
-.subtitle{
-  margin:0;
-  color:var(--muted);
-  font-size:16px
-}
+  <p class="muted">
+    Available for freelance hospitality assignments via MB Hospitality Services
+  </p>
 
-/* Optional divider line under subtitle */
+  <div class="cta">
+    <a class="btn" href="#" onclick="goHospitality()">🍸 Hospitality</a>
 
-.hero-divider{
-  width:40px;
-  height:1px;
-  background: rgba(255,255,255,.18);
-  margin:10px auto;
-}
+    <a class="btn secondary"
+       href="https://martijnbruzzese.github.io/ModelHaven-Studio/"
+       target="_blank"
+       rel="noopener noreferrer">
+      UCSF / ModelHaven Studio
+    </a>
 
-/* Banner background */
+    <a class="btn" href="consulting_en.html">UCSF Consulting</a>
+  </div>
 
-.hero-banner{
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:180px;
-  background-image: url("../img/banner_hospitality.png");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.95;
-}
+</header>
 
-/* Subtle overlay to keep text readable on busy banners */
+<main style="margin-top:28px">
 
-.hero-banner::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: rgba(0,0,0,.18);
-}
+<section>
+  <h2>🍸 Hospitality</h2>
+  <p class="muted">Professional bar & service profile (20+ years experience).</p>
+</section>
 
-/* Keep hero content above banner */
-.hero > *:not(.hero-banner){
-  position: relative;
-  z-index: 2;
-}
+<hr>
 
-/* Avatar */
+<section>
+  <h2>✍️ Writing</h2>
+  <p class="muted">Creative writing & reflections. Coming soon.</p>
+</section>
 
-.hero-avatar{
-  width:96px;
-  height:96px;
-  border-radius:50%;
-  object-fit:cover;
-  margin:90px auto 6px; /* floats over banner */
-  display:block;
-  box-shadow:0 8px 18px rgba(0,0,0,.25);
-  border: 4px solid rgba(255,255,255,.9);
-  background: white;
-}
+<hr>
 
-.clickable{cursor:pointer}
+<section>
+  <h2>🧭 Frameworks</h2>
+  <p class="muted">
+    Independent work on consent-first system design and safety frameworks.<br>
+    <a href="https://martijnbruzzese.github.io/ModelHaven-Studio/" target="_blank">Visit ModelHaven / UCSF</a>
+  </p>
+</section>
 
-/* Buttons */
+</main>
 
-.cta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
-  justify-content:center;
-}
+<footer class="footer">
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid rgba(139,211,255,.35);
-  background: rgba(139,211,255,.12);
-  color:var(--text);
-  font-weight:600;
-}
+<div>
+<strong>Contact</strong><br>
+<a href="mailto:martijnbruzzese@gmail.com">martijnbruzzese@gmail.com</a>
+</div>
 
-.btn:hover{
-  background: rgba(139,211,255,.18);
-  text-decoration:none
-}
+<div class="muted">© 2026 Martijn Bruzzese</div>
 
-.btn.secondary{
-  background: linear-gradient(135deg,#2c3e50,#3a546e);
-  color:#eaf2ff;
-  border:1px solid rgba(255,255,255,.15);
-}
+</footer>
 
-.btn.secondary:hover{
-  filter:brightness(1.1);
-}
+</div>
 
-/* Sections */
-
-.muted{color:var(--muted)}
-
-.footer{
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  margin-top:16px;
-  padding:16px 6px 0;
-  color:var(--muted);
-  border-top:1px solid var(--line);
-}
-
-/* Responsive */
-
-@media (max-width:900px){
-  h1{font-size:34px}
-  .footer{flex-direction:column}
-}
-
-/* ===================== */
-/* Lightbox */
-/* ===================== */
-
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
-  padding:24px;
-}
-
-.lightbox:target{
-  display:flex;
-}
-
-/* Close overlay */
-.lightbox-close{
-  position:absolute;
-  inset:0;
-  cursor:pointer;
-}
-
-/* Image */
-
-.lightbox img{
-  width:auto !important;
-  height:auto !important;
-
-  max-width:50vw !important;
-  max-height:65vh !important;
-
-  border-radius:8px;
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
-  animation:zoom .25s ease;
-}
-
-/* Mobile */
-
-@media (max-width:768px){
-  .lightbox img{
-    max-width:92vw !important;
-    max-height:72vh !important;
+<script>
+function goHospitality() {
+  const lang = navigator.language || navigator.userLanguage;
+  if (lang && lang.toLowerCase().startsWith('nl')) {
+    window.location.href = "hospitality_nl.html";
+  } else {
+    window.location.href = "hospitality_en.html";
   }
 }
+</script>
 
-/* Close icon */
-
-.lightbox::after{
-  content:"✕";
-  position:fixed;
-  top:18px;
-  right:20px;
-  font-size:28px;
-  color:white;
-  opacity:.8;
-}
-
-/* Zoom animation */
-
-@keyframes zoom{
-  from{transform:scale(.9);opacity:0}
-  to{transform:scale(1);opacity:1}
-}
+</body>
+</html>
