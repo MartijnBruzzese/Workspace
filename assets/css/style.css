@@ -23,7 +23,12 @@ body{
 .wrap{
   max-width:980px;
   margin:0 auto;
-  padding:28px 18px 40px;
+  padding:28px 18px 40px 12px;
+}
+
+/* body tekst licht naar links */
+main{
+  margin-left:-4px;
 }
 
 a{color:var(--accent);text-decoration:none}
