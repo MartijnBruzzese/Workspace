@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Martijn Bruzzese — Workspace</title>
   <meta name="description" content="Personal workspace: hospitality, writing, frameworks.">
-  <link rel="stylesheet" href="assets/css/style.css?v=live1">
+  <link rel="stylesheet" href="assets/css/style.css?v=live2">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 
   <span class="badge">Workspace</span>
 
-  <!-- Avatar (static, no click) -->
+  <!-- Avatar (static) -->
   <img src="assets/images/martijnportrait1.png" alt="Martijn Bruzzese" class="hero-avatar">
 
   <h1>Martijn Bruzzese</h1>
@@ -50,4 +50,80 @@
 
 <main style="margin-top:28px">
 
-<sectio
+<section>
+  <h2>🍸 Hospitality</h2>
+  <p class="muted">
+    Professional bar & service profile (20+ years experience).  
+    Freelance availability for bar, floor, cocktails and senior support.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>✍️ Writing</h2>
+  <p class="muted">
+    Creative writing, reflection and narrative work.  
+    Selected projects coming soon.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>🧭 Frameworks</h2>
+  <p class="muted">
+    Independent work on consent-first system design and safety frameworks.<br>
+    <a href="https://martijnbruzzese.github.io/ModelHaven-Studio/" target="_blank" rel="noopener noreferrer">
+      Visit ModelHaven / UCSF
+    </a>
+  </p>
+</section>
+
+</main>
+
+<footer class="footer">
+
+  <div>
+    <strong>Contact</strong><br>
+    <a href="mailto:martijnbruzzese@gmail.com">martijnbruzzese@gmail.com</a>
+  </div>
+
+  <div style="display:flex; gap:12px; align-items:center">
+
+    <!-- LinkedIn -->
+    <a class="social" href="https://www.linkedin.com/in/martijn-bruzzese-76b8b133" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+      in
+    </a>
+
+    <!-- Instagram -->
+    <a class="social" href="https://www.instagram.com/martijnbruzzese" target="_blank" rel="noopener noreferrer" title="Instagram">
+      ig
+    </a>
+
+    <!-- Facebook -->
+    <a class="social" href="https://www.facebook.com/martijnbruzzese" target="_blank" rel="noopener noreferrer" title="Facebook">
+      fb
+    </a>
+
+  </div>
+
+  <div class="muted">© 2026 Martijn Bruzzese</div>
+
+</footer>
+
+</div>
+
+<script>
+function goHospitality() {
+  const lang = navigator.language || navigator.userLanguage;
+  if (lang && lang.toLowerCase().startsWith('nl')) {
+    window.location.href = "hospitality_nl.html";
+  } else {
+    window.location.href = "hospitality_en.html";
+  }
+}
+</script>
+
+</body>
+</html>
