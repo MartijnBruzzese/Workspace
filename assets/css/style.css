@@ -245,3 +245,62 @@ hr{
     max-width:92vw;
   }
 }
+
+/* ===================== */
+/* Consulting hero variant */
+/* Keeps text away from right-side portrait */
+/* ===================== */
+
+.hero--consulting{
+  text-align:left;
+  padding-right:260px; /* reserve space for the portrait on the right */
+}
+
+.hero--consulting .cta{
+  justify-content:flex-start;
+}
+
+.hero--consulting .hero-divider{
+  margin-left:0;
+  margin-right:0;
+}
+
+.hero--consulting h1,
+.hero--consulting .subtitle,
+.hero--consulting .muted,
+.hero--consulting .cta{
+  max-width:520px;
+  margin-left:0;
+  margin-right:0;
+}
+
+/* Optional: nudge the background so the portrait stays right */
+.hero--consulting .hero-banner{
+  background-position:right center;
+}
+
+/* Mobile: remove reserved space, center again */
+@media (max-width:768px){
+  .hero--consulting{
+    padding-right:28px;
+    text-align:center;
+  }
+  .hero--consulting .cta{
+    justify-content:center;
+  }
+  .hero--consulting .hero-divider{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .hero--consulting h1,
+  .hero--consulting .subtitle,
+  .hero--consulting .muted,
+  .hero--consulting .cta{
+    max-width:92vw;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .hero--consulting .hero-banner{
+    background-position:center center;
+  }
+}
