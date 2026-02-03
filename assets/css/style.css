@@ -267,3 +267,11 @@ hr{
     background-position:center;
   }
 }
+
+/* Match consulting hero height to hospitality */
+
+.hero--consulting::before{
+  content:"";
+  display:block;
+  height:124px; /* same as avatar size */
+}
