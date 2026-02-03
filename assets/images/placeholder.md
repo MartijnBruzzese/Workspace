@@ -1,1 +1,1 @@
-This is a placeholder filde to create a folder.
+This is a placeholder file to create a folder.
