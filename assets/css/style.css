@@ -52,13 +52,18 @@ a:hover{text-decoration:underline}
 .hero-banner{
   position:absolute;
   inset:0;
-  background-image:url("../images/banner_hospitality.png");
+
+  /* IMPORTANT: background-image is set per page inline in HTML */
   background-size:cover;
-  background-position:center 35%;
+
+  /* default keeps right side free for portrait in consulting banner */
+  background-position:left center;
+
   opacity:0.95;
   z-index:0;
 }
 
+/* subtle overlay for readability */
 .hero-banner::after{
   content:"";
   position:absolute;
@@ -66,10 +71,27 @@ a:hover{text-decoration:underline}
   background:rgba(0,0,0,.22);
 }
 
+/* Keep hero content above banner */
 .hero > *:not(.hero-banner){
   position:relative;
   z-index:2;
 }
+
+/* Limit hero text width so it doesn't overlap right-side portrait */
+.hero h1,
+.hero .subtitle,
+.hero .muted,
+.hero .cta{
+  max-width:560px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* (optional) if you ever want left aligned hero content later:
+.hero{ text-align:left; }
+.hero .cta{ justify-content:flex-start; }
+.hero-divider{ margin-left:0; }
+*/
 
 h1{
   margin:12px 0 6px;
@@ -208,4 +230,18 @@ hr{
 @media (max-width:900px){
   h1{font-size:34px}
   .footer{flex-direction:column;align-items:flex-start}
+}
+
+/* On mobile, center banner crop so important parts aren't cut off too aggressively */
+@media (max-width:768px){
+  .hero-banner{
+    background-position:center center;
+  }
+
+  .hero h1,
+  .hero .subtitle,
+  .hero .muted,
+  .hero .cta{
+    max-width:92vw;
+  }
 }
