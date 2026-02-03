@@ -275,3 +275,21 @@ hr{
   display:block;
   height:124px; /* same as avatar size */
 }
+
+/* ===================== */
+/* Avatar framing fix */
+/* ===================== */
+
+.hero-avatar{
+  object-position: 50% 20%; /* focus iets hoger zodat je hoofd niet wegvalt */
+}
+
+/* Mobile: nog iets hoger + iets groter zodat het natuurlijker voelt */
+@media (max-width:768px){
+  .hero-avatar{
+    width:136px;
+    height:136px;
+    margin:30px auto 10px;
+    object-position: 50% 15%;
+  }
+}
