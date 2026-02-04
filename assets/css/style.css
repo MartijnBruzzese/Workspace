@@ -298,6 +298,7 @@ hr{
   fill:var(--text);
   opacity:.85;
   transition:.2s ease;
+
 }
 .socials svg:hover{
   opacity:1;
@@ -316,6 +317,7 @@ hr{
   align-items:center;
   justify-content:center;
 }
+
 .socials{
   margin:10px 0 6px;
 }
@@ -323,4 +325,23 @@ hr{
 .socials svg{
   fill:#e8eef6 !important;
   opacity:1;
+}
+
+.socials{
+  display:flex !important;
+  flex-direction:row !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap:18px !important;
+}
+
+.socials a{
+  display:inline-flex !important;
+}
+
+.footer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
 }
