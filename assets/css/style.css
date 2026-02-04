@@ -23,18 +23,14 @@ body{
 .wrap{
   max-width:980px;
   margin:0 auto;
-  padding:28px 18px 40px 12px;
-}
-
-main{
-  margin-left:-4px;
+  padding:28px 18px 40px;
 }
 
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* ===================== */
-/* Hero */
+/* Hero (base) */
 /* ===================== */
 
 .hero{
@@ -43,28 +39,34 @@ a:hover{text-decoration:underline}
   border-radius:18px;
   padding:28px;
   box-shadow:0 10px 30px rgba(0,0,0,.35);
-  text-align:center;
   position:relative;
   overflow:hidden;
+  text-align:center;
 }
 
+/* Banner layer */
 .hero-banner{
   position:absolute;
   inset:0;
   background-size:cover;
   background-position:center;
-  opacity:0.95;
   z-index:0;
 }
 
+/* Overlay for readability (stronger than before) */
 .hero-banner::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.22);
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.62)
+  );
 }
 
-.hero > *:not(.hero-banner){
+/* Keep content above banner */
+.hero > *{
   position:relative;
   z-index:2;
 }
@@ -90,18 +92,18 @@ h1{
   margin:10px auto;
 }
 
-/* Avatar (index + hospitality only) */
-
+/* Avatar (index + hospitality only; omit in consulting HTML) */
 .hero-avatar{
-  width:124px;
-  height:124px;
+  width:132px;
+  height:132px;
   border-radius:50%;
   object-fit:cover;
-  margin:36px auto 10px;
+  margin:34px auto 10px;
   display:block;
   box-shadow:0 10px 22px rgba(0,0,0,.28);
   border:4px solid rgba(255,255,255,.9);
   background:white;
+  object-position:50% 18%; /* focus slightly higher */
 }
 
 /* ===================== */
@@ -203,11 +205,17 @@ hr{
 /* Consulting layout */
 /* ===================== */
 
+/* Same “card size feeling” as hospitality, but without hacks */
 .hero--consulting{
+  min-height:320px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   text-align:left;
-  padding-right:300px;
+  padding-right:320px; /* leaves room for right-side blueprint detail */
 }
 
+/* Keep content width controlled and aligned left */
 .hero--consulting h1,
 .hero--consulting .subtitle,
 .hero--consulting .muted,
@@ -217,17 +225,19 @@ hr{
   margin-right:0;
 }
 
-.hero--consulting .cta{
-  justify-content:flex-start;
-}
-
+/* Align divider + buttons left */
 .hero--consulting .hero-divider{
   margin-left:0;
   margin-right:0;
 }
 
+.hero--consulting .cta{
+  justify-content:flex-start;
+}
+
+/* Banner crop for consulting (single source of truth) */
 .hero--consulting .hero-banner{
-  background-position:right center;
+  background-position: right 38%;
 }
 
 /* ===================== */
@@ -240,7 +250,22 @@ hr{
 }
 
 @media (max-width:768px){
+
+  .wrap{
+    padding:22px 16px 36px;
+  }
+
+  /* Avatar a bit larger on mobile for index/hospitality */
+  .hero-avatar{
+    width:144px;
+    height:144px;
+    margin:28px auto 10px;
+    object-position:50% 14%;
+  }
+
+  /* Consulting becomes centered + full width */
   .hero--consulting{
+    min-height:380px;
     text-align:center;
     padding-right:28px;
   }
@@ -263,50 +288,17 @@ hr{
     margin-right:auto;
   }
 
+  /* Better mobile framing: keep blueprint visible and avoid cropping awkwardly */
   .hero--consulting .hero-banner{
-    background-position:center;
-  }
-}
-
-/* Match consulting hero height to hospitality */
-
-.hero--consulting::before{
-  content:"";
-  display:block;
-  height:124px; /* same as avatar size */
-}
-
-/* ===================== */
-/* Avatar framing fix */
-/* ===================== */
-
-.hero-avatar{
-  object-position: 50% 20%; /* focus iets hoger zodat je hoofd niet wegvalt */
-}
-
-/* Mobile: nog iets hoger + iets groter zodat het natuurlijker voelt */
-@media (max-width:768px){
-  .hero-avatar{
-    width:136px;
-    height:136px;
-    margin:30px auto 10px;
-    object-position: 50% 15%;
-  }
-}
-
-/* ===================== */
-/* Consulting banner mobile framing */
-/* ===================== */
-
-@media (max-width:768px){
-
-  .hero--consulting .hero-banner{
-    background-position: 80% 25%;
+    background-position: 78% 22%;
   }
 
-}
-
-/* Consulting banner: move portrait slightly down on desktop */
-.hero--consulting .hero-banner{
-  background-position: right 35% !important;
+  /* Slightly stronger overlay on mobile for readability */
+  .hero-banner::after{
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.72)
+    );
+  }
 }
