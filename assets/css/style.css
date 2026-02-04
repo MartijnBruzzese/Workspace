@@ -374,3 +374,60 @@ hr{
   max-height: 2000px;
 }
 
+/* ===================== */
+/* Collapsible refinement */
+/* ===================== */
+
+.collapse-toggle{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  font-weight:600;
+  padding:2px 0;
+}
+
+.collapse-toggle .chev{
+  display:inline-block;
+  transition:transform .25s ease;
+  opacity:.8;
+}
+
+/* Rotate arrow when open */
+.collapsible.open .collapse-toggle .chev{
+  transform:rotate(90deg);
+}
+
+/* Extra breathing room inside dropdown */
+.collapse-content{
+  padding-top:10px;
+}
+
+/* Inner text spacing */
+.collapse-content p{
+  margin-top:8px;
+  font-size:15px;
+}
+
+/* Subtle divider under title */
+.collapse-toggle::after{
+  content:"";
+  flex:1;
+  height:1px;
+  margin-left:10px;
+  background:linear-gradient(90deg, rgba(139,211,255,.25), transparent);
+}
+
+/* Soft glow when open */
+.collapsible.open{
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* Mobile spacing */
+@media (max-width:768px){
+  .collapse-content p{
+    font-size:14.5px;
+  }
+}
