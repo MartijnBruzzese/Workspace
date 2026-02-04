@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hospitality — Martijn Bruzzese</title>
   <meta name="description" content="Hospitality profiel — Martijn Bruzzese">
-  <link rel="stylesheet" href="assets/css/style.css?v=live5">
+  <link rel="stylesheet" href="assets/css/style.css?v=live6">
 </head>
 
 <body>
@@ -48,32 +48,26 @@
     </p>
   </div>
 
- <aside class="card collapsible">
+  <aside class="card collapsible">
+    <h3 class="collapse-toggle">Mijn stijl &amp; visie op gastvrijheid</h3>
 
-  <h3 class="collapse-toggle">
-    Mijn stijl & visie op gastvrijheid
-  </h3>
+    <div class="collapse-content">
+      <p class="muted">
+        Gastvrijheid zit in mijn bloed. Ik heb de verschuivingen van dichtbij meegemaakt — van ambacht naar processen, van aandacht naar snelheid, van ontmoeting naar output. En ja: alles is een systeem. Maar systemen mogen nooit belangrijker worden dan mensen.<br><br>
 
-  <div class="collapse-content">
+        Mijn werkethiek is Zorg-Eerst. Dat betekent: eerst de mens, dan de handeling. Eerst verbinding, dan efficiëntie. Ik laat mensen zich gezien voelen — niet omdat het in een protocol staat, maar omdat dat de kern is van echte gastvrijheid.<br><br>
 
-    <p class="muted">
-Gastvrijheid zit in mijn bloed. Ik kom uit de oude school en heb de verschuivingen meegemaakt — van ambacht naar processen, van aandacht naar snelheid, van ontmoeting naar output. En ja: alles is een systeem. Maar systemen mogen nooit belangrijker worden dan mensen.
+        Ik stem me af op mijn gast: energie, lichaamstaal en behoefte, zonder mezelf te verliezen. Goede service vraagt geen onderdanigheid; het vraagt aanwezigheid. Ik geloof niet in koude bediening of lopende-band-concepten. Ik geloof in openheid, menselijke warmte en aandacht.<br><br>
 
-Mijn werkethiek is Zorg-Eerst. Dat betekent: eerst de mens, dan de handeling. Eerst verbinding, dan efficiëntie. Ik laat mensen zich gezien voelen, niet omdat het in een protocol staat, maar omdat dat de kern is van echte gastvrijheid.
+        Gastvrijheid is voor mij geen trucje, maar een houding. Ik lees ruimtes voordat ik handel, voel spanning voordat die zichtbaar wordt en anticipeer liever dan dat ik herstel. Ik werk vanuit verbinding, met grenzen — vanuit het hart, met vakmanschap.<br><br>
 
-Ik stem me af op mijn gast — op energie, lichaamstaal en behoefte — zonder mezelf te verliezen. Goede service vraagt geen onderdanigheid, het vraagt aanwezigheid. Ik geloof niet in koude bediening of massa-vreetschuren. Ik geloof in openheid, menselijke warmte en aandacht.
+        Ik sta naast mensen, niet boven ze en ook niet onder. Iedere gast verdient waardigheid — zolang die wederzijds en blijvend is.<br><br>
 
-Gastvrijheid is voor mij geen trucje, maar een houding. Ik lees ruimtes voordat ik handel, voel spanning voordat die zichtbaar wordt en anticipeer liever dan dat ik herstel. Ik werk vanuit verbinding, met grenzen — vanuit het hart, met vakmanschap.
-
-Ik sta naast mensen, niet boven ze en ook niet onder. Iedere gast verdient waardigheid — zolang die wederzijds en blijvend is.
-
-Uiteindelijk is het simpel: ik wil mensen blij maken. Niet oppervlakkig, maar echt. Dat is wat ik doe. Dat is mijn vak.
-</p>
-
-  </div>
-</aside>
-
- </section>
+        Uiteindelijk is het simpel: ik wil mensen blij maken. Niet oppervlakkig, maar echt. Dat is wat ik doe.
+      </p>
+    </div>
+  </aside>
+</section>
 
 <hr>
 
@@ -94,7 +88,7 @@ Uiteindelijk is het simpel: ik wil mensen blij maken. Niet oppervlakkig, maar ec
 <section>
   <h2>Selectie van werkomgevingen</h2>
   <ul>
-    <li>’t Ankertje Eten & Drinken – Enkhuizen</li>
+    <li>’t Ankertje Eten &amp; Drinken – Enkhuizen</li>
     <li>Van der Valk Hotels (diverse locaties)</li>
     <li>Theaterhotel De Oranjerie – Roermond</li>
     <li>Zin Cocktailbar – Rotterdam</li>
@@ -110,7 +104,7 @@ Uiteindelijk is het simpel: ik wil mensen blij maken. Niet oppervlakkig, maar ec
 <hr>
 
 <section>
-  <h2>Opleiding & certificering</h2>
+  <h2>Opleiding &amp; certificering</h2>
   <ul>
     <li>SVH Sociale Hygiëne</li>
     <li>Horeca niveau 2 – Theaterhotel De Oranjerie</li>
@@ -123,17 +117,13 @@ Uiteindelijk is het simpel: ik wil mensen blij maken. Niet oppervlakkig, maar ec
 </main>
 
 <footer class="footer">
-
   <div>
     <strong>Contact</strong><br>
     <a href="mailto:martijnbruzzese@gmail.com">martijnbruzzese@gmail.com</a>
   </div>
-
   <div class="muted">© 2026 Martijn Bruzzese</div>
-
 </footer>
 
-</div>
 </div>
 
 <script>
@@ -142,12 +132,10 @@ document.querySelectorAll(".collapsible").forEach(card => {
   const content = card.querySelector(".collapse-content");
   if (!toggle || !content) return;
 
-  // Accessibility + nicer UX
   toggle.setAttribute("role", "button");
   toggle.setAttribute("tabindex", "0");
   toggle.setAttribute("aria-expanded", "false");
 
-  // Add arrow if not already present
   if (!toggle.querySelector(".chev")) {
     const chev = document.createElement("span");
     chev.className = "chev";
@@ -162,12 +150,10 @@ document.querySelectorAll(".collapsible").forEach(card => {
     if (chev) chev.textContent = isOpen ? "▾" : "▸";
   };
 
-  // Click
   toggle.addEventListener("click", () => {
     setState(!card.classList.contains("open"));
   });
 
-  // Keyboard (Enter / Space)
   toggle.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -175,14 +161,9 @@ document.querySelectorAll(".collapsible").forEach(card => {
     }
   });
 
-  // Default state: collapsed
   setState(false);
 });
 </script>
-
-</body>
-</html>
-
 
 </body>
 </html>
