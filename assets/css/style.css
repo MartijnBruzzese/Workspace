@@ -304,3 +304,58 @@ hr{
     );
   }
 }
+/* ===================== */
+/* Premium style card */
+/* ===================== */
+
+.card{
+  position:relative;
+  border:1px solid rgba(139,211,255,.25);
+  background:
+    linear-gradient(180deg, rgba(139,211,255,.06), rgba(255,255,255,.02));
+  border-radius:18px;
+  padding:18px 18px 20px;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* subtle accent line on top */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:18px;
+  right:18px;
+  height:2px;
+  background:linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity:.6;
+}
+
+/* soft glow */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:18px;
+  background:radial-gradient(400px 120px at 50% -20%, rgba(139,211,255,.15), transparent 60%);
+  pointer-events:none;
+}
+
+.card h3{
+  margin:0 0 10px;
+  font-size:17px;
+  letter-spacing:-.01em;
+}
+
+.card p{
+  margin:0;
+  line-height:1.55;
+}
+
+/* Slight lift on desktop */
+@media (min-width:900px){
+  .card{
+    transform:translateY(-2px);
+  }
+}
