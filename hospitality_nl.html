@@ -163,5 +163,15 @@
 </footer>
 
 </div>
+<script>
+document.querySelectorAll(".collapsible").forEach(card => {
+  const toggle = card.querySelector(".collapse-toggle");
+
+  toggle.addEventListener("click", () => {
+    card.classList.toggle("open");
+  });
+});
+</script>
+
 </body>
 </html>
