@@ -166,12 +166,26 @@
 <script>
 document.querySelectorAll(".collapsible").forEach(card => {
   const toggle = card.querySelector(".collapse-toggle");
+  const content = card.querySelector(".collapse-content");
+  if (!toggle || !content) return;
 
-  toggle.addEventListener("click", () => {
-    card.classList.toggle("open");
-  });
-});
-</script>
+  // Accessibility + nicer UX
+  toggle.setAttribute("role", "button");
+  toggle.setAttribute("tabindex", "0");
+  toggle.setAttribute("aria-expanded", "false");
+
+  // Add arrow if not already present
+  if (!toggle.querySelector(".chev")) {
+    const chev = document.createElement("span");
+    chev.className = "chev";
+    chev.textContent = "▸";
+    toggle.prepend(chev);
+  }
+
+  const setState = (isOpen) => {
+    card.classList.toggle("open", isOpen);
+    toggle.setAttribute("aria-expanded", isOpe
+
 
 </body>
 </html>
