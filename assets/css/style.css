@@ -35,16 +35,17 @@ a:hover{text-decoration:underline}
 
 .hero{
   border:1px solid var(--line);
-  background:transparent;
   border-radius:18px;
   padding:28px;
   box-shadow:0 10px 30px rgba(0,0,0,.35);
   position:relative;
   overflow:hidden;
   text-align:center;
+  background:transparent;
 }
 
 /* Banner layer */
+
 .hero-banner{
   position:absolute;
   inset:0;
@@ -53,7 +54,8 @@ a:hover{text-decoration:underline}
   z-index:0;
 }
 
-/* Overlay for readability (stronger than before) */
+/* Overlay */
+
 .hero-banner::after{
   content:"";
   position:absolute;
@@ -65,7 +67,8 @@ a:hover{text-decoration:underline}
   );
 }
 
-/* Keep content above banner */
+/* Keep hero content above banner */
+
 .hero > *:not(.hero-banner){
   position:relative;
   z-index:2;
@@ -92,7 +95,8 @@ h1{
   margin:10px auto;
 }
 
-/* Avatar (index + hospitality only; omit in consulting HTML) */
+/* Avatar (index + hospitality only) */
+
 .hero-avatar{
   width:132px;
   height:132px;
@@ -103,7 +107,7 @@ h1{
   box-shadow:0 10px 22px rgba(0,0,0,.28);
   border:4px solid rgba(255,255,255,.9);
   background:white;
-  object-position:50% 18%; /* focus slightly higher */
+  object-position:50% 18%;
 }
 
 /* ===================== */
@@ -141,18 +145,14 @@ h1{
   border:1px solid rgba(255,255,255,.15);
 }
 
-.btn.secondary:hover{
-  filter:brightness(1.1);
-}
+.btn.secondary:hover{filter:brightness(1.1)}
 
 .btn.outline{
   background:transparent;
   border:1px solid rgba(255,255,255,.18);
 }
 
-.btn.outline:hover{
-  background:rgba(255,255,255,.06);
-}
+.btn.outline:hover{background:rgba(255,255,255,.06)}
 
 .flag-btn{
   padding:8px 10px;
@@ -184,38 +184,19 @@ hr{
   align-items:center;
 }
 
-.social{
-  display:inline-flex;
-  width:38px;
-  height:38px;
-  align-items:center;
-  justify-content:center;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.04);
-  color:var(--text);
-}
-
-.social:hover{
-  text-decoration:none;
-  background:rgba(255,255,255,.07);
-}
-
 /* ===================== */
 /* Consulting layout */
 /* ===================== */
 
-/* Same “card size feeling” as hospitality, but without hacks */
 .hero--consulting{
   min-height:320px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   text-align:left;
-  padding-right:320px; /* leaves room for right-side blueprint detail */
+  padding-right:320px;
 }
 
-/* Keep content width controlled and aligned left */
 .hero--consulting h1,
 .hero--consulting .subtitle,
 .hero--consulting .muted,
@@ -225,7 +206,6 @@ hr{
   margin-right:0;
 }
 
-/* Align divider + buttons left */
 .hero--consulting .hero-divider{
   margin-left:0;
   margin-right:0;
@@ -235,9 +215,10 @@ hr{
   justify-content:flex-start;
 }
 
-/* Banner crop for consulting (single source of truth) */
+/* Blueprint on right */
+
 .hero--consulting .hero-banner{
-  background-position: right 38%;
+  background-position:right 38%;
 }
 
 /* ===================== */
@@ -251,11 +232,8 @@ hr{
 
 @media (max-width:768px){
 
-  .wrap{
-    padding:22px 16px 36px;
-  }
+  .wrap{padding:22px 16px 36px}
 
-  /* Avatar a bit larger on mobile for index/hospitality */
   .hero-avatar{
     width:144px;
     height:144px;
@@ -263,16 +241,13 @@ hr{
     object-position:50% 14%;
   }
 
-  /* Consulting becomes centered + full width */
   .hero--consulting{
     min-height:380px;
     text-align:center;
     padding-right:28px;
   }
 
-  .hero--consulting .cta{
-    justify-content:center;
-  }
+  .hero--consulting .cta{justify-content:center}
 
   .hero--consulting .hero-divider{
     margin-left:auto;
@@ -288,12 +263,10 @@ hr{
     margin-right:auto;
   }
 
-  /* Better mobile framing: keep blueprint visible and avoid cropping awkwardly */
   .hero--consulting .hero-banner{
-    background-position: 78% 22%;
+    background-position:78% 22%;
   }
 
-  /* Slightly stronger overlay on mobile for readability */
   .hero-banner::after{
     background: linear-gradient(
       to bottom,
@@ -302,5 +275,3 @@ hr{
     );
   }
 }
-
-<link rel="stylesheet" href="assets/css/style.css?v=live8">
