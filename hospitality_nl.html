@@ -134,6 +134,8 @@ Uiteindelijk is het simpel: ik wil mensen blij maken. Niet oppervlakkig, maar ec
 </footer>
 
 </div>
+</div>
+
 <script>
 document.querySelectorAll(".collapsible").forEach(card => {
   const toggle = card.querySelector(".collapse-toggle");
@@ -155,7 +157,31 @@ document.querySelectorAll(".collapsible").forEach(card => {
 
   const setState = (isOpen) => {
     card.classList.toggle("open", isOpen);
-    toggle.setAttribute("aria-expanded", isOpe
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    const chev = toggle.querySelector(".chev");
+    if (chev) chev.textContent = isOpen ? "▾" : "▸";
+  };
+
+  // Click
+  toggle.addEventListener("click", () => {
+    setState(!card.classList.contains("open"));
+  });
+
+  // Keyboard (Enter / Space)
+  toggle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setState(!card.classList.contains("open"));
+    }
+  });
+
+  // Default state: collapsed
+  setState(false);
+});
+</script>
+
+</body>
+</html>
 
 
 </body>
