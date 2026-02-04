@@ -359,3 +359,18 @@ hr{
     transform:translateY(-2px);
   }
 }
+.collapse-toggle{
+  cursor: pointer;
+  user-select: none;
+}
+
+.collapse-content{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+
+.collapsible.open .collapse-content{
+  max-height: 2000px;
+}
+
