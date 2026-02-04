@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hospitality — Martijn Bruzzese</title>
   <meta name="description" content="Hospitality profile — Martijn Bruzzese">
- <link rel="stylesheet" href="assets/css/style.css?v=live8">
+  <link rel="stylesheet" href="assets/css/style.css?v=live9">
 </head>
 
 <body>
@@ -25,8 +25,8 @@
 
   <div class="hero-divider"></div>
 
-  <p class="muted">
-   
+  <p class="muted tagline">
+    Care-First hospitality. Connection, attention, and dignity — in every interaction.
   </p>
 
   <div class="cta">
@@ -38,13 +38,39 @@
 
 <main style="margin-top:28px">
 
-<section>
-  <h2>Profile</h2>
-  <p class="muted">
-    Senior hospitality professional with over 20 years of experience in bar and service environments.
-    Specialized in cocktails, guest experience and high-pressure service. Comfortable working independently
-    while supporting teams on the floor.
-  </p>
+<section class="section-grid">
+  <div>
+    <h2>Profile</h2>
+    <p class="muted">
+      Senior hospitality professional with over 20 years of experience in bar and service environments.
+      Specialized in cocktails, guest experience and calm performance under pressure. Comfortable working independently,
+      while supporting teams on the floor and protecting the flow of service.
+    </p>
+  </div>
+
+  <aside class="card collapsible">
+
+    <h3 class="collapse-toggle">
+      My style & hospitality philosophy
+    </h3>
+
+    <div class="collapse-content">
+      <p class="muted">
+        Hospitality is in my blood. I come from the old school and I’ve seen the shifts — from craft to processes, from attention to speed, from genuine encounters to output. And yes: everything is a system. But systems should never matter more than people.
+
+        My work ethic is Care-First. That means: people first, action second. Connection first, efficiency second. I make guests feel seen — not because a protocol says so, but because that is the core of real hospitality.
+
+        I tune into the guest — energy, body language and needs — without losing myself. Good service isn’t submission; it’s presence. I don’t believe in cold, conveyor-belt service or “eat-and-leave” places. I believe in openness, human warmth and attention.
+
+        For me, hospitality isn’t a trick — it’s an attitude. I read the room before I act, sense tension before it becomes visible, and I prefer preventing over repairing. I work from connection, with boundaries — from the heart, with craftsmanship.
+
+        I stand beside people, not above them and not beneath them. Every guest deserves dignity — as long as respect remains mutual and consistent.
+
+        In the end, it’s simple: I want to make people happy. Not superficially, but genuinely. That’s what I do. That’s my craft.
+      </p>
+    </div>
+
+  </aside>
 </section>
 
 <hr>
@@ -55,9 +81,9 @@
     <li>Independent bar & floor operation</li>
     <li>Maintaining calm during busy services</li>
     <li>Senior team support</li>
-    <li>Onboarding new colleagues</li>
+    <li>Onboarding and guiding new colleagues</li>
     <li>Guest experience focus</li>
-    <li>Flexible availability</li>
+    <li>Flexible availability within clear agreements</li>
   </ul>
 </section>
 
@@ -105,13 +131,43 @@
 </footer>
 
 </div>
-  <script>
+
+<script>
 document.querySelectorAll(".collapsible").forEach(card => {
   const toggle = card.querySelector(".collapse-toggle");
+  const content = card.querySelector(".collapse-content");
+  if (!toggle || !content) return;
+
+  toggle.setAttribute("role", "button");
+  toggle.setAttribute("tabindex", "0");
+  toggle.setAttribute("aria-expanded", "false");
+
+  if (!toggle.querySelector(".chev")) {
+    const chev = document.createElement("span");
+    chev.className = "chev";
+    chev.textContent = "▸";
+    toggle.prepend(chev);
+  }
+
+  const setState = (isOpen) => {
+    card.classList.toggle("open", isOpen);
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    const chev = toggle.querySelector(".chev");
+    if (chev) chev.textContent = isOpen ? "▾" : "▸";
+  };
 
   toggle.addEventListener("click", () => {
-    card.classList.toggle("open");
+    setState(!card.classList.contains("open"));
   });
+
+  toggle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setState(!card.classList.contains("open"));
+    }
+  });
+
+  setState(false);
 });
 </script>
 
