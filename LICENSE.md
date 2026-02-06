@@ -2,7 +2,7 @@ All Rights Reserved
 
 Copyright © 2026 Martijn Bruzzese
 
-All content in this repository is the intell ectual property of Martijn Bruzzese.
+All content in this repository is the intellectual property of Martijn Bruzzese.
 
 Viewing is permitted.
 
