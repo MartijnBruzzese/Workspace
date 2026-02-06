@@ -431,3 +431,34 @@ hr{
     font-size:14.5px;
   }
 }
+/* ===== CV PRINT FIX ===== */
+@media print {
+
+  body {
+    background: white !important;
+  }
+
+  .wrap {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  h1, h2 {
+    page-break-after: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  ul, p {
+    page-break-inside: avoid;
+  }
+
+  /* Force clean page break before experience section if needed */
+  .experience,
+  #experience {
+    page-break-before: always;
+  }
+
+}
