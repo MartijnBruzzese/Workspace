@@ -462,3 +462,19 @@ hr{
   }
 
 }
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.contact-icon:hover {
+  text-decoration: underline;
+}
+
+.contact-icon .icon {
+  font-size: 1.1em;
+}
