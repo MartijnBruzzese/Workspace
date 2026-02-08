@@ -105,12 +105,30 @@
 <footer class="footer">
 
   <div>
-    <strong>Contact</strong><br>
-    <a href="mailto:martijnbruzzese@gmail.com">martijnbruzzese@gmail.com</a>
-  </div>
+             <strong>Contact</strong><br>
+      </div>
 
   <div class="socials">
 
+<a href="tel:+31629540689"
+   class="phone-icon"
+   aria-label="Bel Martijn"
+   data-phone="+31 6 29540689">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 .98-.24c1.08.36 2.25.55 3.46.55a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.85 22 2 13.15 2 2a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.21.19 2.38.55 3.46a1 1 0 0 1-.24.98l-2.19 2.35z"/>
+  </svg>
+</a>
+
+<a href="mailto:martijnbruzzese@gmail.com"
+   class="mail-icon"
+   aria-label="Mail Martijn"
+   data-mail="martijnbruzzese@gmail.com">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
+</a>
+
+</a>
 <a href="https://www.linkedin.com/in/martijn-bruzzese-76b8b133" target="_blank" aria-label="LinkedIn">
 <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.1c.5-1 1.9-2.2 4-2.2 4.3 0 5.1 2.8 5.1 6.4V24h-4v-7.3c0-1.7 0-4-2.4-4s-2.8 1.9-2.8 3.9V24H8z"/></svg>
 </a>
@@ -127,20 +145,95 @@
 
   <div class="muted">© 2026 Martijn Bruzzese</div>
 
-</footer>
 
+
+
+</footer>
 </div>
 
 <script>
-function goHospitality() {
-  const lang = navigator.language || navigator.userLanguage;
-  if (lang && lang.toLowerCase().startsWith('nl')) {
-    window.location.href = "hospitality_nl.html";
-  } else {
-    window.location.href = "hospitality_en.html";
+document.querySelectorAll(".collapsible").forEach(card => {
+  const toggle = card.querySelector(".collapse-toggle");
+  const content = card.querySelector(".collapse-content");
+  if (!toggle || !content) return;
+
+  let isAnimating = false;
+
+  // accessibility
+  toggle.setAttribute("role", "button");
+  toggle.setAttribute("tabindex", "0");
+  toggle.setAttribute("aria-expanded", "false");
+
+  // inject chevron if missing
+  if (!toggle.querySelector(".chev")) {
+    const chev = document.createElement("span");
+    chev.className = "chev";
+    chev.textContent = "▸";
+    toggle.prepend(chev);
   }
-}
+
+  const setAria = (open) => {
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+
+  const open = () => {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    card.classList.add("open");
+    setAria(true);
+
+    // animate 0 -> scrollHeight
+    content.style.height = "0px";
+    content.style.opacity = "1";
+    content.offsetHeight; // force reflow
+    content.style.height = content.scrollHeight + "px";
+  };
+
+  const close = () => {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    // animate current -> 0
+    content.style.height = content.scrollHeight + "px";
+    content.offsetHeight; // force reflow
+    content.style.height = "0px";
+    content.style.opacity = "0";
+
+    card.classList.remove("open");
+    setAria(false);
+  };
+
+  content.addEventListener("transitionend", (e) => {
+    if (e.propertyName !== "height") return;
+
+    if (card.classList.contains("open")) {
+      content.style.height = "auto"; // natural flow after open
+      content.style.opacity = "1";
+    }
+
+    isAnimating = false;
+  });
+
+  toggle.addEventListener("click", () => {
+    card.classList.contains("open") ? close() : open();
+  });
+
+  toggle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      card.classList.contains("open") ? close() : open();
+    }
+  });
+
+  // start closed
+  card.classList.remove("open");
+  setAria(false);
+  content.style.height = "0px";
+  content.style.opacity = "0";
+});
 </script>
+
 
 </body>
 </html>
