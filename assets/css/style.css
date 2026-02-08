@@ -391,4 +391,26 @@ h1{
     display:none;
   }
 }
+/* ===================== */
+/* Smooth collapse refinement */
+/* ===================== */
+
+.collapse-content{
+  max-height: 0;
+  overflow: hidden;
+
+  /* smoother easing + iets langer */
+  transition:
+    max-height .55s cubic-bezier(.4,0,.2,1),
+    opacity .35s ease;
+
+  opacity: 0;
+  padding-top: 0;
+}
+
+.collapsible.open .collapse-content{
+  max-height: 2000px;
+  opacity: 1;
+  padding-top: 10px;
+}
 
