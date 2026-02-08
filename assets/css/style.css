@@ -356,3 +356,14 @@ h1{
   ul,p{ page-break-inside:avoid; }
   .experience,#experience{ page-break-before:always; }
 }
+.phone-icon svg{
+  width:24px;
+  height:24px;
+  fill:var(--text);
+  transition:.2s ease;
+}
+
+.phone-icon:hover svg{
+  fill:var(--accent);
+  transform:translateY(-1px);
+}
