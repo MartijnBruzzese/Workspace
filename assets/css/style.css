@@ -328,4 +328,67 @@ h1{
   position:relative;
   z-index:1;
 }
+/* ===================== */
+/* PATCH: collapsible animatie terug + mail icon tooltip */
+/* Plak dit onderaan style.css */
+/* ===================== */
+
+/* Collapsible: echte in/uitklap animatie */
+.collapse-content{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+  padding-top: 0; /* voorkomt 'lege ruimte' wanneer dicht */
+}
+
+.collapsible.open .collapse-content{
+  max-height: 2000px; /* ruim genoeg voor jouw tekst */
+  padding-top: 10px; /* jouw eerdere spacing terug */
+}
+
+/* Mail icon (zelfde behavior als phone) */
+.mail-icon{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+}
+
+/* Tooltip base shared (phone + mail) */
+.phone-icon::after,
+.mail-icon::after{
+  position:absolute;
+  bottom:140%;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--card);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.12);
+  padding:0.35em 0.6em;
+  border-radius:10px;
+  font-size:0.85em;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s ease;
+  box-shadow:0 10px 22px rgba(0,0,0,.35);
+}
+
+/* Tooltip content */
+.phone-icon::after{ content: attr(data-phone); }
+.mail-icon::after{ content: attr(data-mail); }
+
+/* Tooltip only on hover-capable devices */
+@media (hover:hover) and (pointer:fine){
+  .phone-icon:hover::after,
+  .mail-icon:hover::after{
+    opacity:1;
+  }
+}
+
+@media (hover:none){
+  .phone-icon::after,
+  .mail-icon::after{
+    display:none;
+  }
+}
 
