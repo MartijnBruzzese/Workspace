@@ -232,3 +232,86 @@ h1{
     height:144px;
   }
 }
+/* ===================== */
+/* FIX: Collapsible chevron + premium card outline */
+/* Plak dit HELEMAAL onderaan style.css */
+/* ===================== */
+
+/* Collapsible toggle layout (maakt ruimte voor injected chevron) */
+.collapse-toggle{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  user-select:none;
+  font-weight:600;
+  padding:2px 0;
+}
+
+/* Chevron element (wordt via JS toegevoegd) */
+.collapse-toggle .chev{
+  display:inline-block;
+  opacity:.8;
+  transition:transform .25s ease;
+}
+
+/* Open state: draai chevron */
+.collapsible.open .collapse-toggle .chev{
+  transform:rotate(90deg);
+}
+
+/* Subtiele divider rechts van de titel */
+.collapse-toggle::after{
+  content:"";
+  flex:1;
+  height:1px;
+  margin-left:10px;
+  background:linear-gradient(90deg, rgba(139,211,255,.25), transparent);
+}
+
+/* Content spacing inside collapsible */
+.collapse-content{
+  padding-top:10px;
+}
+
+/* Premium card (restore fancy outline + glow) */
+.card{
+  position:relative;
+  border:1px solid rgba(139,211,255,.25);
+  background:linear-gradient(180deg, rgba(139,211,255,.06), rgba(255,255,255,.02));
+  border-radius:18px;
+  padding:18px 18px 20px;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* Accent line at top */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:18px;
+  right:18px;
+  height:2px;
+  background:linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity:.6;
+}
+
+/* Soft glow */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:18px;
+  background:radial-gradient(400px 120px at 50% -20%, rgba(139,211,255,.15), transparent 60%);
+  pointer-events:none;
+}
+
+/* Extra punch when open */
+.collapsible.open{
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
