@@ -314,4 +314,18 @@ h1{
     0 14px 32px rgba(0,0,0,.45),
     inset 0 1px 0 rgba(255,255,255,.08);
 }
+/* ===================== */
+/* FIX: card pseudo-elements mogen geen clicks blokkeren */
+/* ===================== */
+
+.card::before,
+.card::after{
+  pointer-events:none;
+  z-index:0;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
 
