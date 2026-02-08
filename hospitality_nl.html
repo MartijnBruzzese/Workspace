@@ -159,45 +159,12 @@ document.querySelectorAll(".collapsible").forEach(card => {
   const content = card.querySelector(".collapse-content");
   if (!toggle || !content) return;
 
+  let isAnimating = false;
+
+  // accessibility
   toggle.setAttribute("role", "button");
   toggle.setAttribute("tabindex", "0");
   toggle.setAttribute("aria-expanded", "false");
-
-  if (!toggle.querySelector(".chev")) {
-    const chev = document.createElement("span");
-    chev.className = "chev";
-    chev.textContent = "▸";
-    toggle.prepend(chev);
-  }
-
-  const setState = (isOpen) => {
-    card.classList.toggle("open", isOpen);
-    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    const chev = toggle.querySelector(".chev");
-    if (chev) chev.textContent = isOpen ? "▾" : "▸";
-  };
-
-  toggle.addEventListener("click", () => {
-    setState(!card.classList.contains("open"));
-  });
-
-  toggle.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      setState(!card.classList.contains("open"));
-    }
-  });
-
-  setState(false);
-});
-</script>
-<script>
-document.querySelectorAll(".collapsible").forEach(card => {
-  const toggle = card.querySelector(".collapse-toggle");
-  const content = card.querySelector(".collapse-content");
-  if (!toggle || !content) return;
-
-  let isAnimating = false;
 
   // inject chevron if missing
   if (!toggle.querySelector(".chev")) {
@@ -207,15 +174,21 @@ document.querySelectorAll(".collapsible").forEach(card => {
     toggle.prepend(chev);
   }
 
+  const setAria = (open) => {
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+
   const open = () => {
     if (isAnimating) return;
     isAnimating = true;
 
     card.classList.add("open");
+    setAria(true);
 
+    // animate 0 -> scrollHeight
     content.style.height = "0px";
     content.style.opacity = "1";
-    content.offsetHeight;
+    content.offsetHeight; // force reflow
     content.style.height = content.scrollHeight + "px";
   };
 
@@ -223,18 +196,21 @@ document.querySelectorAll(".collapsible").forEach(card => {
     if (isAnimating) return;
     isAnimating = true;
 
+    // animate current -> 0
     content.style.height = content.scrollHeight + "px";
-    content.offsetHeight;
+    content.offsetHeight; // force reflow
     content.style.height = "0px";
     content.style.opacity = "0";
+
     card.classList.remove("open");
+    setAria(false);
   };
 
   content.addEventListener("transitionend", (e) => {
     if (e.propertyName !== "height") return;
 
     if (card.classList.contains("open")) {
-      content.style.height = "auto";
+      content.style.height = "auto"; // natural flow after open
       content.style.opacity = "1";
     }
 
@@ -253,10 +229,13 @@ document.querySelectorAll(".collapsible").forEach(card => {
   });
 
   // start closed
+  card.classList.remove("open");
+  setAria(false);
   content.style.height = "0px";
   content.style.opacity = "0";
 });
 </script>
+
 
 </body>
 </html>
