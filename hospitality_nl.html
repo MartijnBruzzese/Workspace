@@ -124,7 +124,7 @@
   </div>
 
   <div class="socials">
-    
+
 <a href="tel:+31629540689"
    class="phone-icon"
    aria-label="Bel Martijn"
@@ -189,6 +189,72 @@ document.querySelectorAll(".collapsible").forEach(card => {
   });
 
   setState(false);
+});
+</script>
+<script>
+document.querySelectorAll(".collapsible").forEach(card => {
+  const toggle = card.querySelector(".collapse-toggle");
+  const content = card.querySelector(".collapse-content");
+  if (!toggle || !content) return;
+
+  let isAnimating = false;
+
+  // inject chevron if missing
+  if (!toggle.querySelector(".chev")) {
+    const chev = document.createElement("span");
+    chev.className = "chev";
+    chev.textContent = "▸";
+    toggle.prepend(chev);
+  }
+
+  const open = () => {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    card.classList.add("open");
+
+    content.style.height = "0px";
+    content.style.opacity = "1";
+    content.offsetHeight;
+    content.style.height = content.scrollHeight + "px";
+  };
+
+  const close = () => {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    content.style.height = content.scrollHeight + "px";
+    content.offsetHeight;
+    content.style.height = "0px";
+    content.style.opacity = "0";
+    card.classList.remove("open");
+  };
+
+  content.addEventListener("transitionend", (e) => {
+    if (e.propertyName !== "height") return;
+
+    if (card.classList.contains("open")) {
+      content.style.height = "auto";
+      content.style.opacity = "1";
+    }
+
+    isAnimating = false;
+  });
+
+  toggle.addEventListener("click", () => {
+    card.classList.contains("open") ? close() : open();
+  });
+
+  toggle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      card.classList.contains("open") ? close() : open();
+    }
+  });
+
+  // start closed
+  content.style.height = "0px";
+  content.style.opacity = "0";
 });
 </script>
 
